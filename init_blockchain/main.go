@@ -35,7 +35,7 @@ func main() {
 		log.Fatalf("连接到以太坊节点失败: %v", err)
 	}
 	defer client.Close()
-	fmt.Println("✓ 成功连接到 Sepolia 测试网络")
+	fmt.Println("成功连接到 Sepolia 测试网络")
 
 	// 1. 查询区块信息
 	fmt.Println("\n========== 查询区块信息 ==========")
@@ -108,7 +108,7 @@ func sendTransaction(client *ethclient.Client) {
 	if err != nil {
 		log.Fatalf("解析私钥失败: %v\n请确保私钥格式正确（不要包含 0x 前缀）", err)
 	}
-	fmt.Println("✓ 私钥加载成功")
+	fmt.Println("私钥加载成功")
 
 	// 2. 从私钥获取公钥和地址
 	publicKey := privateKey.Public()
@@ -165,7 +165,7 @@ func sendTransaction(client *ethclient.Client) {
 	if err != nil {
 		log.Fatalf("签名交易失败: %v", err)
 	}
-	fmt.Println("✓ 交易签名成功")
+	fmt.Println("交易签名成功")
 
 	// 9. 发送交易
 	err = client.SendTransaction(ctx, signedTx)
